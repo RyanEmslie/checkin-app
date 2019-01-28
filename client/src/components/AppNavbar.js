@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+// import { NavLink } from 'react-router-dom'
 
 import {
     Nav,
@@ -23,6 +24,11 @@ class AppNavbar extends Component {
         });
     };
 
+    showForm = () => {
+        let temp = document.querySelector(".my-form");
+        temp.classList.remove("hidden");
+    };
+
     render() {
         return (
             <div className="app-navbar">
@@ -33,13 +39,17 @@ class AppNavbar extends Component {
                         <Collapse isOpen={this.state.isOpen} navbar>
                             <Nav className="ml-auto" navbar>
                                 <NavItem>
-                                    <NavLink>Home</NavLink>
+                                    <NavLink href="/">Home</NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink>Check-in</NavLink>
+                                    <NavLink onClick={this.showForm} href="#">
+                                        Check-in
+                                    </NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink>Locations</NavLink>
+                                    <NavLink href="locations">
+                                        Locations
+                                    </NavLink>
                                 </NavItem>
                             </Nav>
                         </Collapse>

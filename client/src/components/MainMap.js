@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { Map, TileLayer, Marker, Popup } from "react-leaflet";
 
+// import FormModal from "./FormModal";
+// import Form from "./Form";
+
 import "bootstrap/dist/css/bootstrap.css";
 import "../App.css";
 
@@ -23,6 +26,11 @@ class MainMap extends Component {
         this.props.passUp(this.state.location);
     };
 
+    showForm = () => {
+        let temp = document.querySelector(".my-form");
+        temp.classList.remove("hidden");
+    };
+
     render() {
         const position = [this.state.location.lat, this.state.location.lng];
 
@@ -41,9 +49,9 @@ class MainMap extends Component {
 
                     <Marker position={position}>
                         <Popup>
-                            <p>{`Lat: ${this.props.newLat}, \nLong: ${
-                                this.props.newLng
-                            }`}</p>
+                            <button onClick={this.showForm}>
+                                Enter Location
+                            </button>
                         </Popup>
                     </Marker>
                 </Map>

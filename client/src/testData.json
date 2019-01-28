@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "name": "Joe's Place",
+        "category": "Food",
+        "rating": "5",
+        "description": "",
+        "lat": 29.682833126855247,
+        "lng": -82.34775960445405
+    },
+    {
+        "id": 2,
+        "name": "Kanye's Place",
+        "category": "Music",
+        "rating": "5",
+        "description": "",
+        "lat": 29.693570342273286,
+        "lng": -82.34775960445405
+    },
+    {
+        "id": 3,
+        "name": "Tom's Place",
+        "category": "Food",
+        "rating": "2",
+        "description": "",
+        "lat": 29.686225912639905,
+        "lng": -82.32594251632692
+    },
+    {
+        "id": 4,
+        "name": "Kwames's Place",
+        "category": "Other",
+        "rating": "2",
+        "description": "",
+        "lat": 29.63666495373365,
+        "lng": -82.39522933959962
+    }
+]
