@@ -84,7 +84,7 @@ class App extends Component {
     });
   };
 
-  checkValidity = () => {
+  checkValidity = ({ Name, Type }) => {
     const { name, type, rating, comment } = this.state.placeInfo;
     let {
       nameVal,
@@ -93,6 +93,19 @@ class App extends Component {
       commentVal
     } = this.state.formValididation;
 
+    // return (
+    // 	<div>
+    // 	{
+    // 		<div>
+    // 			<div className={"" + (name.length < 1) ? "input-error" : ""}> <Name/></div>
+    // 			<div className={"" + (type.length < 1) ? "input-error" : ""} ><Type/></div>
+    // 			<div className={"" + (name.length < 1) ? "input-error" : ""}><Name/></div>
+    // 			<div className={"" + (type.length < 1) ? "input-error" : ""} ><Type/></div>
+    // 			<div className={"" + (name.length < 1) ? "input-error" : ""}><Name/></div>
+    // 		</div>
+    // 	}
+    // 	</div>
+    // )
     if (name.length < 1) {
       console.log("Please enter name");
       document.querySelector("#placeName").classList.add("input-error");
