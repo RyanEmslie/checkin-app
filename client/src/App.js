@@ -11,6 +11,27 @@ import axios from "axios";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.css";
 
+// Submitted from <MyForm />
+const formSubmit = frog => {
+  axios
+    .post("/api/places", {
+      name: frog.state.placeInfo.name,
+      type: frog.state.placeInfo.type,
+      rating: frog.state.placeInfo.rating,
+      comment: frog.state.placeInfo.comment,
+      latitude: frog.state.location.lat,
+      longitude: frog.state.location.lng
+    })
+    .then(console.log("Posted"));
+
+  document.querySelector("#success-alert").classList.remove("hidden");
+  setTimeout(function() {
+    document.querySelector(".my-form").classList.add("hidden");
+    document.querySelector("#success-alert").classList.add("hidden");
+  }, 2500);
+  frog.clearForm();
+};
+
 const getLocationUpdateApp = self => {
   navigator.geolocation.getCurrentPosition(
     position => {
@@ -138,34 +159,12 @@ class App extends Component {
       commentVal = true;
     }
     nameVal && typeVal && ratingVal && commentVal
-      ? this.formSubmit()
+      ? formSubmit(this)
       : console.log("Please review form");
 
     if (nameVal && typeVal && ratingVal && commentVal) {
-      this.formSubmit();
       document.querySelector("#my-submit-btn").classList.remove("disabled");
     }
-  };
-
-  // Submitted from <MyForm />
-  formSubmit = e => {
-    axios
-      .post("/api/places", {
-        name: this.state.placeInfo.name,
-        type: this.state.placeInfo.type,
-        rating: this.state.placeInfo.rating,
-        comment: this.state.placeInfo.comment,
-        latitude: this.state.location.lat,
-        longitude: this.state.location.lng
-      })
-      .then(console.log("Posted"));
-
-    document.querySelector("#success-alert").classList.remove("hidden");
-    setTimeout(function() {
-      document.querySelector(".my-form").classList.add("hidden");
-      document.querySelector("#success-alert").classList.add("hidden");
-    }, 2500);
-    this.clearForm();
   };
 
   clearForm = () => {
